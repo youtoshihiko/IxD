@@ -14,7 +14,6 @@
 
         function ClickNumber(i)
         {
-            IsEqual = false;
             if (Symbol == null)
             {
                 IsSymbol = false;
@@ -81,7 +80,8 @@
         {
             if (IsEqual == true)
             {
-                Number = document.getElementById("result").value;
+                if(document.getElementById("result").value != "")Number = document.getElementById("result").value;
+                else Number = 0;
                 NumberII = TempNumber;
                 Symbol = TempSymbol;
             }
@@ -100,19 +100,16 @@
 
         function ClickResetCE()
         {
-            IsEqual = false;
             document.getElementById("result").value = "";
         }
 
         function ClickBackspace()
         {
-            IsEqual = false;
             document.getElementById("result").value = document.getElementById("result").value.substring(0, document.getElementById("result").value.length - 1);
         }
 
         function ClickPlusOrMinus()
         {
-            IsEqual = false;
             document.getElementById("result").value *= -1;
         }
 
@@ -134,7 +131,7 @@
   <body>
 	<input type="text" id="temp" name="temp" value="" style="text-align:right">
 	<br>
-  	<input type="text" id="result" name="result" value="" style="text-align:right">
+    	<input type="text" id="result" name="result" value="" style="text-align:right">
 	<br>
 	<input type="button" id="clear2" name="clear2" value="CE" onclick="ClickResetCE();">
 	<input type="button" id="clear" name="clear" value="C" onclick="ClickReset();">
