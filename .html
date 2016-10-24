@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html>
+  <head>
+    <title>計算G</title>
+    <script>
+        function Show(i)
+        {
+            document.getElementById("result").value += i;
+        }
+        function Compute()
+        {
+            var NumberArray = new Array(),
+                Result = 0;
+
+            if (document.getElementById("result").value.indexOf("+") != -1)
+            {
+                NumberArray = document.getElementById("result").value.split("+");
+                for (i = 0; i < NumberArray.length; i++)
+                {
+                    Result += parseFloat(NumberArray[i]);
+                }
+            }
+            else if(document.getElementById("result").value.indexOf("-") != -1)
+            {
+                NumberArray = document.getElementById("result").value.split("-");
+                Result = Number(NumberArray[0]);
+                for (i = 1; i < NumberArray.length; i++)
+                {
+                    Result -= parseFloat(NumberArray[i]);
+                }
+            }
+            else if (document.getElementById("result").value.indexOf("x") != -1)
+            {
+                NumberArray = document.getElementById("result").value.split("x");
+                Result = Number(NumberArray[0]);
+                for (i = 1; i < NumberArray.length; i++)
+                {
+                    Result *= parseFloat(NumberArray[i]);
+                }
+            }
+            else if (document.getElementById("result").value.indexOf("÷") != -1)
+            {
+                NumberArray = document.getElementById("result").value.split("÷");
+                Result = Number(NumberArray[0]);
+                for (i = 1; i < NumberArray.length; i++)
+                {
+                    Result /= parseFloat(NumberArray[i]);
+                }
+            }
+            document.getElementById("result").value = Result;
+	    }
+        function Reset()
+        {
+		    document.getElementById("result").value = "";
+        }
+    </script>
+  </head>
+  <body text="#ffffff">
+    <input type="text" id="result" name="result" value="">
+	<br>
+    <input type="button" id="clear2" name="clear2" value="CE" onclick="Reset();">
+    <input type="button" id="clear" name="clear" value="C" onclick="Reset();">
+    <input type="button" id="backspace" name="backspace" value="←" onclick="Reset();">
+    <input type="button" id="division" name="division" value="÷" onclick="Show(this.value);">
+    <br>
+	<input type="button" id="c7" name="c7" value="7" onclick="Show(this.value);">
+	<input type="button" id="c8" name="c8" value="8" onclick="Show(this.value);">
+	<input type="button" id="c9" name="c9" value="9" onclick="Show(this.value);">
+	<input type="button" id="multiply" name="multiply" value="x" onclick="Show(this.value);">
+	<br>
+	<input type="button" id="c4" name="c4" value="4" onclick="Show(this.value);">
+	<input type="button" id="c5" name="c5" value="5" onclick="Show(this.value);">
+	<input type="button" id="c6" name="c6" value="6" onclick="Show(this.value);">
+	<input type="button" id="subtract" name="subtract" value="-" onclick="Show(this.value);">
+	<br>
+	<input type="button" id="c1" name="c1" value="1" onclick="Show(this.value);">
+	<input type="button" id="c2" name="c2" value="2" onclick="Show(this.value);">
+	<input type="button" id="c3" name="c3" value="3" onclick="Show(this.value);">
+	<input type="button" id="add" name="add" value="+" onclick="Show(this.value);">
+	<br>
+	<input type="button" id="PandN" name="PandN" value="±" onclick="Show(this.value);">
+    <input type="button" id="c0" name="c0" value="0" onclick="Show(this.value);">
+	<input type="button" id="decimal" name="decimal" value="." onclick="Show(this.value);">
+	<input type="button" id="equal" name="equal" value="=" onclick="Compute(this.value);">
+	</body>
+</html>
