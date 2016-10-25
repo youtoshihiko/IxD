@@ -105,7 +105,12 @@
 
         function ClickBackspace()
         {
-            document.getElementById("result").value = document.getElementById("result").value.substring(0, document.getElementById("result").value.length - 1);
+            if(document.getElementById("result").value.length == 2 && document.getElementById("result").value.charAt(0) == "-")
+            {
+                document.getElementById("result").value = 0;
+                IsSymbol = true;
+            }
+            else document.getElementById("result").value = document.getElementById("result").value.substring(0, document.getElementById("result").value.length - 1);
         }
 
         function ClickPlusOrMinus()
